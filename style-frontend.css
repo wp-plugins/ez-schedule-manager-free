@@ -1,0 +1,345 @@
+.ezscm * {
+	box-sizing: border-box;
+}
+
+.ezscm-box {
+	padding: 10px;
+}
+
+.ezscm .ezscm-container {
+	display: none;
+}
+
+.ezscm ul {
+	list-style: none;
+}
+
+.ezscm .ezscm-container .ezscm-details {
+	display: none;
+}
+
+.ezscm .ezscm-loading {
+	text-align: center;
+	margin-top: 30px;
+	font-size: 1.3em;
+}
+
+.ezscm-hidden {
+	visibility: hidden;
+}
+
+/**
+	form
+**/
+.ezscm .ezscm-container input{
+	display: inline-block;
+	min-height: 30px;
+}
+.ezscm .ezscm-container textarea {
+	display: inline-block;
+	width: 300px;
+}
+.ezscm .ezscm-details-element {
+	margin-bottom: 8px;
+}
+
+/**
+	schedules list
+**/
+.ezscm .ezscm-schedules-list {
+	width: 150px;
+}
+.ezscm .ezscm-schedules-list li.button {
+	width: 125px;
+	margin: 0 0 10px;
+}
+
+/**
+	schedule
+**/
+.ezscm .ezscm-schedule {
+	display: table;
+	text-align: center;
+	white-space: nowrap;
+	width: 100%;
+}
+.ezscm .schedule-header {
+	height: 45px;
+	margin: 0 0 10px;
+	text-align: center;
+}
+.ezscm .schedule-day, .ezscm .schedule-times {
+	list-style: none;
+	vertical-align: top;
+	margin-left: 3px;
+	padding-left: 0;
+}
+.ezscm .schedule-day {
+	display: table-cell;
+}
+
+.ezscm .schedule-list-day {
+	display: table-cell;
+}
+.ezscm .schedule-times-responsive {
+	display: none;
+}
+@media (max-width: 840px) {
+	.ezscm .schedule-times, .ezscm .schedule-times-responsive {
+		display: inline-block;
+	}
+	.ezscm .schedule-list-day {
+		display: block;
+	}
+	.ezscm .schedule-times-main {
+		display: none;
+	}
+}
+
+.ezscm .schedule-entry {
+	background: #eee;
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	margin: 0 0 3px;
+	overflow: hidden;
+}
+.ezscm .schedule-entry.entry-free:hover:not(.nosubmit) {
+	cursor: pointer;
+}
+.ezscm .schedule-entry span {
+	vertical-align: middle;
+}
+
+.ezscm .entry-small {
+	width: auto;
+	height: 25px;
+	line-height: 25px;
+	margin: 0 0 3px;
+}
+
+.ezscm .entry-free {
+	background: #efefef;
+}
+.ezscm .entry-public {
+	background: #f66;
+	color: #000;
+}
+.ezscm .entry-blocked {
+	background: #999;
+}
+
+.ezscm .entry-selected {
+	border: #f00 1px solid;
+}
+
+.ezscm .ezscm-browse {
+	display: none;
+	margin-bottom: 50px;
+}
+.ezscm-browse .btn {
+	display: inline-block;
+}
+.ezscm-browse .alignleft {
+	float: left;
+}
+.ezscm-browse .alignright {
+	float: right;
+}
+
+.ezscm-details {
+	display: none;
+	margin-top: 2em;
+	text-align: center;
+}
+.ezscm-form label {
+	display: block;
+	margin-bottom: 0.2em;
+}
+.ezscm-form input {
+	text-align: center;
+}
+.ezscm-element {
+	margin: 0.5em auto;
+}
+.ezscm-required-notification {
+	margin-top: 30px;
+}
+.ezscm-success-text {
+	display: none;
+}
+.ezscm-message {
+	text-align: center;
+}
+
+
+/**
+	spinner
+**/
+#floatingCirclesG{
+	position:relative;
+	width:48px;
+	height:48px;
+	-moz-transform:scale(0.6);
+	-webkit-transform:scale(0.6);
+	-o-transform:scale(0.6);
+	-ms-transform:scale(0.6);
+	transform:scale(0.6);
+}
+
+.f_circleG{
+	position:absolute;
+	background-color:#FFFFFF;
+	height:9px;
+	width:9px;
+	-moz-border-radius:4px;
+	-moz-animation-name:f_fadeG;
+	-moz-animation-duration:0.8s;
+	-moz-animation-iteration-count:infinite;
+	-moz-animation-direction:linear;
+	-webkit-border-radius:4px;
+	-webkit-animation-name:f_fadeG;
+	-webkit-animation-duration:0.8s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-direction:linear;
+	-o-border-radius:4px;
+	-o-animation-name:f_fadeG;
+	-o-animation-duration:0.8s;
+	-o-animation-iteration-count:infinite;
+	-o-animation-direction:linear;
+	-ms-border-radius:4px;
+	-ms-animation-name:f_fadeG;
+	-ms-animation-duration:0.8s;
+	-ms-animation-iteration-count:infinite;
+	-ms-animation-direction:linear;
+	border-radius:4px;
+	animation-name:f_fadeG;
+	animation-duration:0.8s;
+	animation-iteration-count:infinite;
+	animation-direction:linear;
+}
+
+#frotateG_01{
+	left:0;
+	top:20px;
+	-moz-animation-delay:0.3s;
+	-webkit-animation-delay:0.3s;
+	-o-animation-delay:0.3s;
+	-ms-animation-delay:0.3s;
+	animation-delay:0.3s;
+}
+
+#frotateG_02{
+	left:6px;
+	top:6px;
+	-moz-animation-delay:0.4s;
+	-webkit-animation-delay:0.4s;
+	-o-animation-delay:0.4s;
+	-ms-animation-delay:0.4s;
+	animation-delay:0.4s;
+}
+
+#frotateG_03{
+	left:20px;
+	top:0;
+	-moz-animation-delay:0.5s;
+	-webkit-animation-delay:0.5s;
+	-o-animation-delay:0.5s;
+	-ms-animation-delay:0.5s;
+	animation-delay:0.5s;
+}
+
+#frotateG_04{
+	right:6px;
+	top:6px;
+	-moz-animation-delay:0.6s;
+	-webkit-animation-delay:0.6s;
+	-o-animation-delay:0.6s;
+	-ms-animation-delay:0.6s;
+	animation-delay:0.6s;
+}
+
+#frotateG_05{
+	right:0;
+	top:20px;
+	-moz-animation-delay:0.7s;
+	-webkit-animation-delay:0.7s;
+	-o-animation-delay:0.7s;
+	-ms-animation-delay:0.7s;
+	animation-delay:0.7s;
+}
+
+#frotateG_06{
+	right:6px;
+	bottom:6px;
+	-moz-animation-delay:0.8s;
+	-webkit-animation-delay:0.8s;
+	-o-animation-delay:0.8s;
+	-ms-animation-delay:0.8s;
+	animation-delay:0.8s;
+}
+
+#frotateG_07{
+	left:20px;
+	bottom:0;
+	-moz-animation-delay:0.9s;
+	-webkit-animation-delay:0.9s;
+	-o-animation-delay:0.9s;
+	-ms-animation-delay:0.9s;
+	animation-delay:0.9s;
+}
+
+#frotateG_08{
+	left:6px;
+	bottom:6px;
+	-moz-animation-delay:1s;
+	-webkit-animation-delay:1s;
+	-o-animation-delay:1s;
+	-ms-animation-delay:1s;
+	animation-delay:1s;
+}
+
+@-moz-keyframes f_fadeG{
+0%{
+background-color:#488EA4}
+
+100%{
+background-color:#FFFFFF}
+
+}
+
+@-webkit-keyframes f_fadeG{
+0%{
+background-color:#488EA4}
+
+100%{
+background-color:#FFFFFF}
+
+}
+
+@-o-keyframes f_fadeG{
+0%{
+background-color:#488EA4}
+
+100%{
+background-color:#FFFFFF}
+
+}
+
+@-ms-keyframes f_fadeG{
+0%{
+background-color:#488EA4}
+
+100%{
+background-color:#FFFFFF}
+
+}
+
+@keyframes f_fadeG{
+0%{
+background-color:#488EA4}
+
+100%{
+background-color:#FFFFFF}
+
+}
