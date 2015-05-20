@@ -2,9 +2,9 @@
 Contributors: keksdieb
 Donate link: http://www.mials.de/mials/ezscm/
 Tags: booking, booking date, booking request, booking time, contact, customer date, customer schedule, customer time, ezplugins, ezscm, form, manager, Requests, schedule, time
-Requires at least: 3.6
-Tested up to: 4.1.1
-Stable tag: 4.1.1
+Requires at least: 3.7
+Tested up to: 4.2.2
+Stable tag: 4.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,9 @@ No FAQs so far
 2. Backend options
 
 == Changelog ==
+
+= 1.1 =
+* Date/Time values would not be sent in emails, occasionally.
 
 = 1.0 =
 * Initial Version

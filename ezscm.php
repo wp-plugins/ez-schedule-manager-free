@@ -3,7 +3,7 @@
 Plugin Name: ez Schedule Manager Free
 Plugin URI: http://www.mials.de/mials/ezscm/
 Description: ez Schedule Manager is a WordPress plugin which allows you to manage incoming schedule requests. In case you offer contact requests or simple booking on specific dates or times, this is the right plugin for you.
-Version: 1.0
+Version: 1.1
 Author: Michael Schuppenies
 Author URI: http://www.ezplugins.de/
 */
@@ -31,7 +31,7 @@ if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
 }
 
 function ezscm_get_version() {
-	return "1.0";
+	return "1.1";
 }
 
 /**

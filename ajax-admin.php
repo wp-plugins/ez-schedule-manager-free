@@ -93,10 +93,8 @@ die();
 
 
 function send_ajax($msg) {
-	//error_log(var_export($msg, true));
 	if (is_object($msg) && property_exists($msg, "data")) $msg->data = json_decode($msg->data);
 	$ret = json_encode($msg);
-	//error_log(var_export($ret, true));
 
 	echo $ret;
 }

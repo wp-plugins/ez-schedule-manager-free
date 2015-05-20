@@ -294,44 +294,50 @@ class Ezscm_frontend {
 		get email output
 	**/
 	function get_mail_output($save_data, $options) {
-		error_log(var_export($save_data, true));
-		$out = array();
+		// form fields
+		$form_elements = $this->get_element_fields($options["form_elements"]->value, true);
+
+		// put email text into vars
+		$mail_content_replace       = $options["email_text"]->value;
+		$mail_admin_content_replace = $options["email_admin_text"]->value;
 
 		// output prefix
-		$out_pre = "
-		<html>
-		<head>
-			<meta charset='utf-8' />
-			<style type='text/css'>
-			table { width: 100%; max-width: 800px; border-collapse: collapse; }
-			tr, td { padding: 10px 5px; vertical-align: top; }
-			</style>
-		</head>
-		<body>";
+		$out_pre = "<html><body>";
 
 		// output suffix
-		$out_suf = "
-		</body>
-		</html>";
+		$out_suf  = "<br><br>Sent with ez Schedule Manager - <a href='http://www.ezplugins.de/'>www.ezplugins.de</a>";
+		$out_suf .= "</body></html>";
 
-		// result output
+		// output buffer
+		$out = array();
 		$out[] = "<table>";
 
-		// fields
-		$form_elements = $this->get_element_fields($options["form_elements"]->value, true);
-		$out = array();
+		// add protected fields
+		$form_elements[] = "callbackdate";
+		$form_elements[] = "callbackhour";
+
+		// form fields
 		foreach ($form_elements as $i => $label) {
-			$out[] = __($label, "ezscm") . ": {$save_data["form"][$label]}";
+			$input_value = $save_data["form"][$label];
+
+			$label_text = $label;
+			// change label
+			if ($label == "callbackdate")      $label_text = __("Date", "ezscm");
+			else if ($label == "callbackhour") $label_text = __("Time", "ezscm");
+
+			$out[] = "<tr><td>" . __($label_text, "ezscm") . ":";
+			$out[] = "</td><td>" . "{$input_value}";
+			$out[] = "</td></tr>";
+
+			// replace template fields, e.g. {{name}}
+			$mail_content_replace       = str_ireplace("{{" . $label . "}}", $input_value, $mail_content_replace);
+			$mail_admin_content_replace = str_ireplace("{{" . $label . "}}", $input_value, $mail_admin_content_replace);
 		}
 
 		$out[] = "</table>";
 
 		// implode content
-		$result_content = nl2br(implode("\n", $out));
-
-		// put email text into vars
-		$mail_content_replace       = $options["email_text"]->value;
-		$mail_admin_content_replace = $options["email_admin_text"]->value;
+		$result_content = implode("", $out);
 
 		// replace other values
 		$replaces = array(
@@ -345,12 +351,12 @@ class Ezscm_frontend {
 
 		// put together email contents for user
 		$mail_content  = $out_pre;
-		$mail_content .= $mail_content_replace;
+		$mail_content .= apply_filters("the_content", $mail_content_replace);
 		$mail_content .= $out_suf;
 
 		// put together email contents for admin
 		$mail_admin_content  = $out_pre;
-		$mail_admin_content .= $mail_admin_content_replace;
+		$mail_admin_content .= apply_filters("the_content", $mail_admin_content_replace);
 		$mail_admin_content .= $out_suf;
 
 		return array(
@@ -429,11 +435,11 @@ class Ezscm_frontend {
 
 		// callback date
 		$html .= "<div class='ezscm-details-element ezscm-details-element-date'>
-			<label>" . __('Date', 'ezscm') . "</label><input type='text' name='data[form][callbackdate]' class='callbackdate' disabled='disabled' value='' />
+			<label>" . __('Date', 'ezscm') . "</label><input type='text' name='data[form][callbackdate]' class='callbackdate' readonly value='' />
 		</div>";
 		// callback hour
 		$html .= "<div class='ezscm-details-element ezscm-details-element-time'>
-			<label>" . __('Time', 'ezscm') . "</label><input type='text' name='data[form][callbackhour]' class='callbackhour' disabled='disabled' value='' />
+			<label>" . __('Time', 'ezscm') . "</label><input type='text' name='data[form][callbackhour]' class='callbackhour' readonly value='' />
 		</div>";
 
 		foreach ($form_elements as $i => $element) {

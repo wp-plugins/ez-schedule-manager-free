@@ -23,7 +23,7 @@ if (isset($_POST["reset"])) {
 
 if (isset($_POST["submit"])) {
 	// additional options
-	error_log(var_export($_POST["opt"], true));
+
 	foreach ($_POST["opt"] as $k => $v) {
 		update_option("ezscm_{$k}", $v);
 	}
